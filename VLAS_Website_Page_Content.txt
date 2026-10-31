@@ -1,0 +1,446 @@
+VETERANS LEGAL AID SOCIETY
+WEBSITE PAGE CONTENT
+
+Current implemented draft copy
+Routes: /, /about, /support, /contact
+
+======================================================================
+1.0 HOME
+Route: /
+======================================================================
+
+1.1 HERO
+
+1.1.1 Eyebrow
+Veterans Legal Aid Society
+
+1.1.2 Heading
+Justice should remain within reach.
+
+1.1.3 Body Copy
+VLAS is an Illinois nonprofit focused on veterans and their families having meaningful access to justice.
+
+1.1.4 Calls to Action
+- Support our mission
+- Learn about VLAS
+
+
+1.2 OUR MISSION
+
+1.2.1 Section Label
+Our mission
+
+1.2.2 Section Heading
+Meaningful access to justice for those who served.
+
+1.2.3 Body Copy
+VLAS exists to help build clearer, more connected pathways to justice for veterans and their families—grounded in dignity, practical support, and institutional trust.
+
+1.2.4 Text Link
+About our mission
+
+
+1.3 WHAT WE DO
+
+1.3.1 Section Label
+What we do
+
+1.3.2 Section Heading
+Focused on access. Built through partnership.
+
+1.3.3 Introductory Copy
+These draft focus areas express the organization’s stated purpose without making unverified service claims. Final program language remains subject to client approval.
+
+1.3.4 Focus Area 01: Access to justice
+Helping veterans and their families find clearer pathways through legal challenges and available resources.
+
+1.3.5 Focus Area 02: Trusted connections
+Bringing legal professionals, community organizations, and supporters into stronger service networks.
+
+1.3.6 Focus Area 03: Practical understanding
+Making legal information and next steps easier to understand, navigate, and act on.
+
+
+1.4 OUR IMPACT
+
+1.4.1 Section Label
+Our impact
+
+1.4.2 Section Heading
+Credibility begins with evidence.
+
+1.4.3 Introductory Copy
+VLAS is committed to communicating its work responsibly, using approved outcomes and authentic stories.
+
+1.4.4 Impact Panel Label
+Accountability in action
+
+1.4.5 Impact Panel Heading
+Impact should be specific, verified, and human.
+
+1.4.6 Impact Panel Body Copy
+VLAS will use this space for client-approved milestones, outcomes, and stories. No statistics or individual success stories are presented until they can be verified.
+
+1.4.7 Editorial Requirement
+Verified impact information and approved imagery are needed for publication.
+
+
+1.5 THOSE WHO MAKE IT POSSIBLE
+
+1.5.1 Section Label
+Those who make it possible
+
+1.5.2 Section Heading
+A mission strengthened by people who step forward.
+
+1.5.3 Introductory Copy
+VLAS recognizes the legal professionals, sponsors, and community supporters who help move this work forward.
+
+1.5.4 Recognition Group: Attorneys
+Legal professionals who contribute time, experience, or resources.
+Status: Recognition roster pending approval.
+
+1.5.5 Recognition Group: Sponsors
+Organizations that help sustain VLAS and its mission.
+Status: Recognition roster pending approval.
+
+1.5.6 Recognition Group: Community supporters
+Partners and individuals who strengthen the circle of support.
+Status: Recognition roster pending approval.
+
+
+1.6 SUPPORT CTA
+
+1.6.1 Section Label
+Stand with veterans
+
+1.6.2 Section Heading
+Your support can strengthen the path to justice.
+
+1.6.3 Body Copy
+Learn how donations, professional support, and community partnership can advance the VLAS mission.
+
+1.6.4 Calls to Action
+- Support our mission
+- Start a conversation
+
+
+======================================================================
+2.0 ABOUT & SERVICES
+Route: /about
+======================================================================
+
+2.1 HERO
+
+2.1.1 Eyebrow
+About & Services
+
+2.1.2 Heading
+A principled commitment to access and dignity.
+
+2.1.3 Body Copy
+VLAS is focused on a simple but consequential idea: veterans and their families should have meaningful access to justice.
+
+
+2.2 WHO WE ARE
+
+2.2.1 Section Label
+Who we are
+
+2.2.2 Section Heading
+Service deserves lasting support.
+
+2.2.3 Lead Copy
+Veterans Legal Aid Society is an Illinois nonprofit serving a public-interest mission at the intersection of veterans, families, legal professionals, and community support.
+
+2.2.4 Body Copy
+VLAS seeks to make legal systems and support pathways easier to understand and navigate while building the relationships needed for durable, practical access to justice.
+
+
+2.3 OUR HISTORY
+
+2.3.1 Section Label
+Our history
+
+2.3.2 Section Heading
+A history that should be told with precision.
+
+2.3.3 Body Copy
+The organization’s founding story and verified milestones were not included in the supplied materials. This section is intentionally reserved for an approved organizational history rather than inferred dates or accomplishments.
+
+2.3.4 Client Content Required
+Founding date, key milestones, leadership history, and approved source language.
+
+
+2.4 WHAT WE DO
+
+2.4.1 Section Label
+What we do
+
+2.4.2 Section Heading
+Work organized around meaningful access.
+
+2.4.3 Introductory Copy
+Final service and program descriptions should be confirmed before publication.
+
+2.4.4 Focus Area 01: Access to justice
+Helping veterans and their families find clearer pathways through legal challenges and available resources.
+
+2.4.5 Focus Area 02: Trusted connections
+Bringing legal professionals, community organizations, and supporters into stronger service networks.
+
+2.4.6 Focus Area 03: Practical understanding
+Making legal information and next steps easier to understand, navigate, and act on.
+
+
+2.5 PATRIOT POOLED TRUST
+
+2.5.1 Section Label
+Patriot Pooled Trust
+
+2.5.2 Section Heading
+A dedicated place for an important relationship.
+
+2.5.3 Lead Copy
+Client-approved information describing the Patriot Pooled Trust and its verified relationship with VLAS is required for this section.
+
+2.5.4 Body Copy
+No operational, legal, financial, or organizational details have been inferred from the name alone. Once approved source material is supplied, this section can clearly explain the relationship and direct visitors to the appropriate next step.
+
+2.5.5 Editorial Placeholder
+Relationship description, approved terminology, and destination link are needed.
+
+
+2.6 GET INVOLVED CTA
+
+2.6.1 Section Label
+Get involved
+
+2.6.2 Section Heading
+There is a place for principled support.
+
+2.6.3 Body Copy
+Explore ways to support the mission or contact VLAS to begin a professional or community conversation.
+
+2.6.4 Calls to Action
+- Ways to support
+- Contact VLAS
+
+
+======================================================================
+3.0 SUPPORT OUR MISSION
+Route: /support
+======================================================================
+
+3.1 HERO
+
+3.1.1 Eyebrow
+Support Our Mission
+
+3.1.2 Heading
+Strong institutions are built by people who care.
+
+3.1.3 Body Copy
+VLAS welcomes thoughtful support from donors, legal professionals, organizations, and community partners.
+
+3.1.4 Calls to Action
+- Donation information
+- Discuss a partnership
+
+
+3.2 WHY SUPPORT MATTERS
+
+3.2.1 Section Label
+Why support matters
+
+3.2.2 Section Heading
+Access is strengthened through shared commitment.
+
+3.2.3 Lead Copy
+Legal challenges can be difficult to understand and navigate. Mission-aligned support helps VLAS build stronger pathways, clearer information, and more durable community connections.
+
+3.2.4 Body Copy
+Final fundraising language, use-of-funds statements, and giving disclosures should be reviewed and approved before the donation integration is published.
+
+
+3.3 WAYS TO SUPPORT VLAS
+
+3.3.1 Section Label
+Ways to support VLAS
+
+3.3.2 Section Heading
+Choose the role that fits.
+
+3.3.3 Introductory Copy
+Every path begins with clear expectations and an appropriate conversation.
+
+3.3.4 Way 01: Give
+Support the mission through the organization’s approved donation channel once configured.
+
+3.3.5 Way 02: Offer professional support
+Attorneys and other professionals can contact VLAS to discuss appropriate ways to contribute.
+
+3.3.6 Way 03: Build a partnership
+Organizations and community groups can begin a conversation about mission-aligned support.
+
+3.3.7 Way 04: Share the mission
+Help more people understand why meaningful access to justice for veterans and families matters.
+
+
+3.4 DONATE
+
+3.4.1 Section Label
+Donate
+
+3.4.2 Section Heading
+Help make access to justice more meaningful.
+
+3.4.3 Body Copy
+A secure giving destination has not yet been approved or connected. This area is ready for the organization’s selected donation provider.
+
+3.4.4 Configuration Status
+Donation link awaiting configuration.
+
+3.4.5 Supporting Note
+No payment information is collected on this website.
+
+
+3.5 RECOGNITION
+
+3.5.1 Section Label
+Recognition
+
+3.5.2 Section Heading
+Support deserves thoughtful acknowledgment.
+
+3.5.3 Introductory Copy
+Recognition will be published only with approved names, attribution levels, and permissions.
+
+3.5.4 Recognition Group: Attorneys
+Legal professionals who contribute time, experience, or resources.
+Status: Recognition roster pending approval.
+
+3.5.5 Recognition Group: Sponsors
+Organizations that help sustain VLAS and its mission.
+Status: Recognition roster pending approval.
+
+3.5.6 Recognition Group: Community supporters
+Partners and individuals who strengthen the circle of support.
+Status: Recognition roster pending approval.
+
+
+3.6 CLOSING CTA
+
+3.6.1 Section Label
+Start a conversation
+
+3.6.2 Section Heading
+Interested in standing with VLAS?
+
+3.6.3 Body Copy
+Contact the organization to discuss professional support, sponsorship, or a community partnership.
+
+3.6.4 Calls to Action
+- Contact VLAS
+- Learn about the mission
+
+
+======================================================================
+4.0 CONTACT US
+Route: /contact
+======================================================================
+
+4.1 HERO
+
+4.1.1 Eyebrow
+Contact Us
+
+4.1.2 Heading
+Begin with a clear conversation.
+
+4.1.3 Body Copy
+Use the form below for general, professional, sponsorship, partnership, or media inquiries.
+
+
+4.2 SEND AN INQUIRY
+
+4.2.1 Section Label
+Send an inquiry
+
+4.2.2 Section Heading
+How can we direct your message?
+
+4.2.3 Introductory Copy
+The form is prepared for an approved delivery integration. Until one is connected, it will not transmit or store submissions.
+
+4.2.4 Form Instructions
+Fields marked * are required.
+
+4.2.5 Form Fields
+- Full name *
+- Email address *
+- Inquiry type *
+- Message *
+
+4.2.6 Inquiry Type Options
+- Select an inquiry type
+- General inquiry
+- Professional support
+- Sponsorship or partnership
+- Media inquiry
+
+4.2.7 Message Helper Text
+Do not include sensitive personal, financial, or legal information.
+
+4.2.8 Submit Button
+Send inquiry
+
+4.2.9 Validation Messages
+- Enter your full name.
+- Enter your email address.
+- Enter a valid email address, such as name@example.org.
+- Choose an inquiry type.
+- Enter a message.
+- Please correct the highlighted fields and try again.
+
+4.2.10 Unconfigured Submission Status
+This form is not yet connected to an approved delivery service. Your message has not been sent.
+
+
+4.3 CONTACT DETAILS
+
+4.3.1 Section Label
+Contact details
+
+4.3.2 Section Heading
+Approved details are still needed.
+
+4.3.3 Body Copy
+A verified email address, telephone number, mailing address, office hours, and response-time expectations were not included in the supplied materials.
+
+4.3.4 Publication Status
+Pending client approval.
+
+4.3.5 Legal Review Note
+Any public-facing legal notices or relationship disclaimers require client and legal approval before publication.
+
+
+4.4 SUPPORT CTA
+
+4.4.1 Section Label
+Support the work
+
+4.4.2 Section Heading
+Looking for another way to connect?
+
+4.4.3 Body Copy
+Learn about the mission and the ways donors, professionals, and community partners can participate.
+
+4.4.4 Calls to Action
+- Support our mission
+- About VLAS
+
+
+======================================================================
+END OF DOCUMENT
+======================================================================

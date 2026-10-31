@@ -1,0 +1,10 @@
+{
+  "description": "A professional temporary homepage for Veterans Legal Aid Society that reassures visitors and directs veterans and their families to legal aid resources.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
