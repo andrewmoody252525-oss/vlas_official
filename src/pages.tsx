@@ -137,8 +137,8 @@ export function HomePage() {
         eyebrow="Veterans Legal Aid Society"
         title="Justice should remain within reach."
         intro="VLAS is an Illinois nonprofit focused on veterans and their families having meaningful access to justice."
-        image="/assets/veteran-portrait.jpg"
-        imageAlt="An older veteran wearing a service cap with an American flag in the background"
+        image="/assets/american-flag-sunset.jpg"
+        imageAlt="American flag illuminated by the setting sun"
       >
         <AppLink className="button button-primary" href="/support">
           Support our mission
