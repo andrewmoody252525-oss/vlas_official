@@ -26,10 +26,32 @@ const focusAreas = [
   },
 ]
 
-export function ServiceOverview() {
+const aboutServices = [
+  {
+    number: "01",
+    title: "Ask a Lawyer / Legal Advice Desk",
+    copy: "Free in-person and virtual legal consultations help veterans and their families identify legal issues, understand their options, and obtain appropriate assistance or referrals.",
+  },
+  {
+    number: "02",
+    title: "Healthcare Power of Attorney Workshops",
+    copy: "Educational workshops help veterans and their families understand healthcare decision-making, prepare important legal documents, and avoid preventable complications.",
+  },
+  {
+    number: "03",
+    title: "Patriot Pooled Income Trust",
+    copy: "Through its role as co-trustee, VLAS helps administer a specialized trust designed to assist eligible individuals with disabilities in preserving assets while accessing Medicaid benefits.",
+  },
+]
+
+export function ServiceOverview({
+  items = focusAreas,
+}: {
+  items?: typeof focusAreas
+}) {
   return (
     <div className="service-grid">
-      {focusAreas.map((item) => (
+      {items.map((item) => (
         <article className="service-card" key={item.number}>
           <p className="card-number">{item.number}</p>
           <h3>{item.title}</h3>
@@ -252,18 +274,32 @@ export function AboutPage() {
             <span aria-hidden="true">VLAS</span>
           </div>
           <div>
-            <h2>A history that should be told with precision.</h2>
+            <h2>Serving Veterans Since 2010</h2>
             <p>
-              The organization’s founding story and verified milestones were not
-              included in the supplied materials. This section is intentionally
-              reserved for an approved organizational history rather than
-              inferred dates or accomplishments.
+              Founded in 2010, Veterans’ Legal Aid Society has spent more than
+              15 years working to improve access to legal assistance for
+              veterans and their families.
+            </p>
+            <p>
+              From its earliest years, VLAS has focused on addressing legal
+              challenges that can profoundly affect the lives and well-being of
+              those who served. Its work has included specialized legal
+              services, coordination with veterans’ organizations, and
+              administration of the Patriot Pooled Income Trust, which helps
+              eligible individuals with disabilities preserve assets while
+              accessing important benefits.
+            </p>
+            <p>
+              Our history is rooted in service. Our future is focused on making
+              justice more accessible to every veteran and family we can reach.
             </p>
             <div className="editorial-note">
-              <strong>Client content required</strong>
+              <strong>2010–TODAY | A Continuing Commitment to Veterans</strong>
               <span>
-                Founding date, key milestones, leadership history, and approved
-                source language.
+                From specialized legal services and trust administration to
+                expanded legal consultations and educational outreach, VLAS
+                continues to evolve to meet the needs of Illinois veterans and
+                their families.
               </span>
             </div>
           </div>
@@ -275,37 +311,37 @@ export function AboutPage() {
           <SectionHeading
             eyebrow="What we do"
             title="Work organized around meaningful access."
-            intro="Final service and program descriptions should be confirmed before publication."
+            intro="Veterans’ Legal Aid Society (VLAS) provides free legal assistance to veterans and their families, helping them navigate challenges that can threaten their homes, livelihoods, financial security, and well-being."
           />
-          <ServiceOverview />
+          <p className="section-supporting-copy">
+            Through direct legal services, in-person and virtual consultations,
+            educational outreach, and partnerships with attorneys and veterans’
+            organizations, VLAS works to make meaningful access to justice a
+            reality for those who served.
+          </p>
+          <ServiceOverview items={aboutServices} />
         </div>
       </section>
 
       <section className="section trust-section">
         <div className="container trust-grid">
           <div>
-            <p className="eyebrow eyebrow-light">Patriot Pooled Trust</p>
-            <h2>A dedicated place for an important relationship.</h2>
+            <p className="eyebrow eyebrow-light">Patriot Pooled Income Trust</p>
+            <h2>Preserving assets while protecting access to benefits.</h2>
           </div>
           <div>
             <p className="trust-lead">
-              Client-approved information describing the Patriot Pooled Trust
-              and its verified relationship with VLAS is required for this
-              section.
+              Through its role as co-trustee, VLAS helps administer a
+              specialized trust designed to assist eligible individuals with
+              disabilities in preserving assets while accessing Medicaid
+              benefits.
             </p>
             <p>
-              No operational, legal, financial, or organizational details have
-              been inferred from the name alone. Once approved source material
-              is supplied, this section can clearly explain the relationship and
-              direct visitors to the appropriate next step.
+              Administration of the Patriot Pooled Income Trust has been part of
+              VLAS’s longstanding work to address legal and financial challenges
+              that can profoundly affect the lives and well-being of those it
+              serves.
             </p>
-            <div className="editorial-note editorial-note-dark">
-              <strong>Editorial placeholder</strong>
-              <span>
-                Relationship description, approved terminology, and destination
-                link are needed.
-              </span>
-            </div>
           </div>
         </div>
       </section>
@@ -545,10 +581,19 @@ export function ContactForm() {
           required
         >
           <option value="">Select an inquiry type</option>
+          <option value="legal-assistance">
+            I am a veteran or family member seeking legal assistance
+          </option>
+          <option value="attorney">
+            I am an attorney interested in volunteering
+          </option>
+          <option value="partnership">
+            My firm or organization is interested in partnering
+          </option>
+          <option value="donation">
+            I would like to make a donation or sponsor VLAS
+          </option>
           <option value="general">General inquiry</option>
-          <option value="professional">Professional support</option>
-          <option value="sponsorship">Sponsorship or partnership</option>
-          <option value="media">Media inquiry</option>
         </select>
         {errors.inquiry && (
           <span className="field-error" id="inquiry-error">
@@ -609,8 +654,24 @@ export function ContactPage() {
             <SectionHeading
               eyebrow="Send an inquiry"
               title="How can we direct your message?"
-              intro="The form is prepared for an approved delivery integration. Until one is connected, it will not transmit or store submissions."
+              intro="Whether you’re a veteran seeking legal assistance, an attorney interested in providing pro bono services, or an organization looking to support our mission, we welcome the opportunity to connect."
             />
+            <div className="contact-guidance">
+              <p>
+                Please select the type of inquiry below and share a brief
+                description of how we can help. Our team will review your
+                message and follow up as appropriate.
+              </p>
+              <p>
+                Illinois veterans seeking legal assistance may also call{" "}
+                <AppLink href="tel:18887514377">1-888-751-4377</AppLink>.
+              </p>
+              <p className="contact-configuration-note">
+                <strong>Online form status:</strong> Message delivery is still
+                being configured. Until it is connected, please use the phone
+                number or email address provided on this page.
+              </p>
+            </div>
             <ContactForm />
           </div>
           <aside
@@ -618,21 +679,33 @@ export function ContactPage() {
             aria-labelledby="contact-details-heading"
           >
             <p className="eyebrow eyebrow-light">Contact details</p>
-            <h2 id="contact-details-heading">
-              Approved details are still needed.
-            </h2>
+            <h2 id="contact-details-heading">We’re Here to Help</h2>
             <p>
-              A verified email address, telephone number, mailing address,
-              office hours, and response-time expectations were not included in
-              the supplied materials.
+              Whether you need legal assistance or want to help expand access to
+              justice for Illinois veterans, Veterans’ Legal Aid Society
+              welcomes your inquiry.
             </p>
             <div className="contact-detail-card">
-              <span>Publication status</span>
-              <strong>Pending client approval</strong>
+              <span>Legal Assistance for Veterans</span>
+              <AppLink href="tel:18887514377">Call: 1-888-751-4377</AppLink>
             </div>
+            <div className="contact-detail-card">
+              <span>Partnerships, Donations & General Inquiries</span>
+              <AppLink href="mailto:info@veteranslegalaid.org">
+                Email: info@veteranslegalaid.org
+              </AppLink>
+            </div>
+            <p>
+              Attorneys, law firms, corporate legal departments, and community
+              organizations interested in supporting our mission are encouraged
+              to reach out.
+            </p>
             <p className="aside-note">
-              Any public-facing legal notices or relationship disclaimers
-              require client and legal approval before publication.
+              <strong>Serving Illinois Veterans and Their Families</strong>
+              <span>
+                Together, we can help build stronger futures for those who
+                served.
+              </span>
             </p>
           </aside>
         </div>

@@ -146,10 +146,25 @@ h3 {
 }
 
 .site-header {
-  position: relative;
+  position: sticky;
   z-index: 20;
+  top: 0;
   border-bottom: 1px solid var(--color-vlas-border);
   background: rgb(255 255 255 / 96%);
+  box-shadow: 0 0.5rem 2rem rgb(8 18 32 / 7%);
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms ease;
+  will-change: transform;
+}
+
+.site-header.is-header-visible {
+  transform: translateY(0);
+}
+
+.site-header.is-header-hidden {
+  box-shadow: none;
+  transform: translateY(calc(-100% - 2px));
 }
 
 .header-inner {
@@ -167,8 +182,8 @@ h3 {
 }
 
 .logo-link img {
-  width: 12.25rem;
-  aspect-ratio: 3 / 1;
+  width: 14rem;
+  aspect-ratio: 614 / 134;
   object-fit: contain;
 }
 
@@ -546,6 +561,13 @@ h3 {
   font-size: 1.05rem;
 }
 
+.section-supporting-copy {
+  max-width: 43rem;
+  margin: -2rem 0 3rem;
+  color: var(--color-vlas-slate);
+  font-size: 1.05rem;
+}
+
 .section-navy .section-intro {
   color: #b9c3cf;
 }
@@ -730,7 +752,7 @@ h3 {
 
 .footer-logo {
   display: inline-block;
-  width: 13rem;
+  width: 16rem;
   margin-bottom: 1.5rem;
 }
 
@@ -926,6 +948,31 @@ h3 {
   background: #fff;
 }
 
+.contact-guidance {
+  max-width: 43rem;
+  margin: -2.5rem 0 2rem;
+  color: var(--color-vlas-slate);
+}
+
+.contact-guidance p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-guidance a {
+  color: var(--color-vlas-red-dark);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.contact-configuration-note {
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--color-vlas-red);
+  background: #f8edee;
+  color: var(--color-vlas-red-dark);
+  font-size: 0.78rem;
+}
+
 .form-instructions {
   margin-bottom: 1.5rem;
   color: var(--color-vlas-slate);
@@ -1054,6 +1101,15 @@ h3 {
   text-transform: uppercase;
 }
 
+.contact-detail-card a {
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.22rem;
+}
+
 .reveal-item {
   opacity: 0;
   transform: translateY(1.6rem);
@@ -1150,6 +1206,15 @@ h3 {
   border-top: 1px solid rgb(255 255 255 / 16%);
   color: #b9c3cf;
   font-size: 0.75rem;
+}
+
+.aside-note strong,
+.aside-note span {
+  display: block;
+}
+
+.aside-note span {
+  margin-top: 0.35rem;
 }
 
 @media (max-width: 68rem) {
@@ -1266,7 +1331,7 @@ h3 {
   }
 
   .logo-link img {
-    width: 10.5rem;
+    width: 11.5rem;
   }
 
   h1 {

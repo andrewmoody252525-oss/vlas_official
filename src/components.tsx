@@ -46,7 +46,8 @@ export function AppLink({
       event.shiftKey ||
       event.altKey ||
       href.startsWith("http") ||
-      href.startsWith("mailto:")
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:")
     ) {
       return
     }
@@ -137,13 +138,55 @@ export function MobileNavigation({
 
 export function SiteHeader({ currentRoute }: { currentRoute: RoutePath }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [headerVisible, setHeaderVisible] = useState(true)
   const [indicatorReady, setIndicatorReady] = useState(false)
   const [indicator, setIndicator] = useState({ left: 0, width: 0 })
+  const siteHeader = useRef<HTMLElement>(null)
   const desktopNavigation = useRef<HTMLElement>(null)
 
   useEffect(() => {
     setMenuOpen(false)
+    setHeaderVisible(true)
   }, [currentRoute])
+
+  useEffect(() => {
+    let previousScrollY = window.scrollY
+    let scrollFrame = 0
+
+    if (menuOpen) setHeaderVisible(true)
+
+    const updateHeader = () => {
+      const currentScrollY = window.scrollY
+      const scrollDelta = currentScrollY - previousScrollY
+      const activeElement = document.activeElement
+      const hasKeyboardFocus =
+        activeElement instanceof HTMLElement &&
+        Boolean(siteHeader.current?.contains(activeElement)) &&
+        activeElement.matches(":focus-visible")
+
+      if (currentScrollY <= 32 || menuOpen || hasKeyboardFocus) {
+        setHeaderVisible(true)
+      } else if (scrollDelta < -2) {
+        setHeaderVisible(true)
+      } else if (scrollDelta > 6 && currentScrollY > 120) {
+        setHeaderVisible(false)
+      }
+
+      previousScrollY = currentScrollY
+      scrollFrame = 0
+    }
+
+    const handleScroll = () => {
+      if (scrollFrame) return
+      scrollFrame = window.requestAnimationFrame(updateHeader)
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.cancelAnimationFrame(scrollFrame)
+    }
+  }, [menuOpen])
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -190,7 +233,13 @@ export function SiteHeader({ currentRoute }: { currentRoute: RoutePath }) {
   } as CSSProperties
 
   return (
-    <header className="site-header">
+    <header
+      ref={siteHeader}
+      className={`site-header ${
+        headerVisible ? "is-header-visible" : "is-header-hidden"
+      }`}
+      onFocusCapture={() => setHeaderVisible(true)}
+    >
       <div className="container header-inner">
         <AppLink
           href="/"
@@ -198,8 +247,8 @@ export function SiteHeader({ currentRoute }: { currentRoute: RoutePath }) {
           ariaCurrent={currentRoute === "/" ? "page" : undefined}
         >
           <img
-            src="/assets/vlas-logo-light.png"
-            alt="Veterans Legal Aid Society"
+            src="/assets/vlas-logo-new.svg"
+            alt="Veterans’ Legal Aid Society"
           />
         </AppLink>
 
@@ -264,8 +313,8 @@ export function SiteFooter() {
         <div className="footer-brand">
           <AppLink href="/" className="footer-logo">
             <img
-              src="/assets/vlas-logo-dark.png"
-              alt="Veterans Legal Aid Society"
+              src="/assets/vlas-logo-footer-transparent.png"
+              alt="Veterans’ Legal Aid Society"
             />
           </AppLink>
           <p>
@@ -285,9 +334,12 @@ export function SiteFooter() {
         </div>
         <div>
           <h2>Connect</h2>
-          <p>Organizational contact details are pending client approval.</p>
-          <AppLink href="/contact" className="footer-text-link">
-            Contact VLAS <span aria-hidden="true">→</span>
+          <p>Legal assistance for Illinois veterans: 1-888-751-4377</p>
+          <AppLink
+            href="mailto:info@veteranslegalaid.org"
+            className="footer-text-link"
+          >
+            info@veteranslegalaid.org
           </AppLink>
         </div>
       </div>

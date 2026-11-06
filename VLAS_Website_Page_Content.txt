@@ -163,13 +163,19 @@ VLAS seeks to make legal systems and support pathways easier to understand and n
 Our history
 
 2.3.2 Section Heading
-A history that should be told with precision.
+Serving Veterans Since 2010
 
 2.3.3 Body Copy
-The organization’s founding story and verified milestones were not included in the supplied materials. This section is intentionally reserved for an approved organizational history rather than inferred dates or accomplishments.
+Founded in 2010, Veterans’ Legal Aid Society has spent more than 15 years working to improve access to legal assistance for veterans and their families.
 
-2.3.4 Client Content Required
-Founding date, key milestones, leadership history, and approved source language.
+From its earliest years, VLAS has focused on addressing legal challenges that can profoundly affect the lives and well-being of those who served. Its work has included specialized legal services, coordination with veterans’ organizations, and administration of the Patriot Pooled Income Trust, which helps eligible individuals with disabilities preserve assets while accessing important benefits.
+
+Our history is rooted in service. Our future is focused on making justice more accessible to every veteran and family we can reach.
+
+2.3.4 Milestone
+2010–TODAY | A Continuing Commitment to Veterans
+
+From specialized legal services and trust administration to expanded legal consultations and educational outreach, VLAS continues to evolve to meet the needs of Illinois veterans and their families.
 
 
 2.4 WHAT WE DO
@@ -181,34 +187,33 @@ What we do
 Work organized around meaningful access.
 
 2.4.3 Introductory Copy
-Final service and program descriptions should be confirmed before publication.
+Veterans’ Legal Aid Society (VLAS) provides free legal assistance to veterans and their families, helping them navigate challenges that can threaten their homes, livelihoods, financial security, and well-being.
 
-2.4.4 Focus Area 01: Access to justice
-Helping veterans and their families find clearer pathways through legal challenges and available resources.
+Through direct legal services, in-person and virtual consultations, educational outreach, and partnerships with attorneys and veterans’ organizations, VLAS works to make meaningful access to justice a reality for those who served.
 
-2.4.5 Focus Area 02: Trusted connections
-Bringing legal professionals, community organizations, and supporters into stronger service networks.
+2.4.4 Service 01: Ask a Lawyer / Legal Advice Desk
+Free in-person and virtual legal consultations help veterans and their families identify legal issues, understand their options, and obtain appropriate assistance or referrals.
 
-2.4.6 Focus Area 03: Practical understanding
-Making legal information and next steps easier to understand, navigate, and act on.
+2.4.5 Service 02: Healthcare Power of Attorney Workshops
+Educational workshops help veterans and their families understand healthcare decision-making, prepare important legal documents, and avoid preventable complications.
+
+2.4.6 Service 03: Patriot Pooled Income Trust
+Through its role as co-trustee, VLAS helps administer a specialized trust designed to assist eligible individuals with disabilities in preserving assets while accessing Medicaid benefits.
 
 
-2.5 PATRIOT POOLED TRUST
+2.5 PATRIOT POOLED INCOME TRUST
 
 2.5.1 Section Label
-Patriot Pooled Trust
+Patriot Pooled Income Trust
 
 2.5.2 Section Heading
-A dedicated place for an important relationship.
+Preserving assets while protecting access to benefits.
 
 2.5.3 Lead Copy
-Client-approved information describing the Patriot Pooled Trust and its verified relationship with VLAS is required for this section.
+Through its role as co-trustee, VLAS helps administer a specialized trust designed to assist eligible individuals with disabilities in preserving assets while accessing Medicaid benefits.
 
 2.5.4 Body Copy
-No operational, legal, financial, or organizational details have been inferred from the name alone. Once approved source material is supplied, this section can clearly explain the relationship and direct visitors to the appropriate next step.
-
-2.5.5 Editorial Placeholder
-Relationship description, approved terminology, and destination link are needed.
+Administration of the Patriot Pooled Income Trust has been part of VLAS’s longstanding work to address legal and financial challenges that can profoundly affect the lives and well-being of those it serves.
 
 
 2.6 GET INVOLVED CTA
@@ -371,7 +376,13 @@ Send an inquiry
 How can we direct your message?
 
 4.2.3 Introductory Copy
-The form is prepared for an approved delivery integration. Until one is connected, it will not transmit or store submissions.
+Whether you’re a veteran seeking legal assistance, an attorney interested in providing pro bono services, or an organization looking to support our mission, we welcome the opportunity to connect.
+
+Please select the type of inquiry below and share a brief description of how we can help. Our team will review your message and follow up as appropriate.
+
+Illinois veterans seeking legal assistance may also call 1-888-751-4377.
+
+Online form status: Message delivery is still being configured. Until it is connected, please use the phone number or email address provided on this page.
 
 4.2.4 Form Instructions
 Fields marked * are required.
@@ -384,10 +395,11 @@ Fields marked * are required.
 
 4.2.6 Inquiry Type Options
 - Select an inquiry type
+- I am a veteran or family member seeking legal assistance
+- I am an attorney interested in volunteering
+- My firm or organization is interested in partnering
+- I would like to make a donation or sponsor VLAS
 - General inquiry
-- Professional support
-- Sponsorship or partnership
-- Media inquiry
 
 4.2.7 Message Helper Text
 Do not include sensitive personal, financial, or legal information.
@@ -413,16 +425,24 @@ This form is not yet connected to an approved delivery service. Your message has
 Contact details
 
 4.3.2 Section Heading
-Approved details are still needed.
+We’re Here to Help
 
 4.3.3 Body Copy
-A verified email address, telephone number, mailing address, office hours, and response-time expectations were not included in the supplied materials.
+Whether you need legal assistance or want to help expand access to justice for Illinois veterans, Veterans’ Legal Aid Society welcomes your inquiry.
 
-4.3.4 Publication Status
-Pending client approval.
+4.3.4 Legal Assistance for Veterans
+Call: 1-888-751-4377
 
-4.3.5 Legal Review Note
-Any public-facing legal notices or relationship disclaimers require client and legal approval before publication.
+4.3.5 Partnerships, Donations & General Inquiries
+Email: info@veteranslegalaid.org
+
+4.3.6 Supporting Copy
+Attorneys, law firms, corporate legal departments, and community organizations interested in supporting our mission are encouraged to reach out.
+
+Together, we can help build stronger futures for those who served.
+
+4.3.7 Service Note
+Serving Illinois Veterans and Their Families
 
 
 4.4 SUPPORT CTA
