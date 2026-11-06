@@ -18,7 +18,7 @@ Veterans Legal Aid Society
 Justice should remain within reach.
 
 1.1.3 Body Copy
-VLAS is an Illinois nonprofit focused on veterans and their families having meaningful access to justice.
+VLAS is an Illinois nonprofit focused on VETERANS AND THEIR FAMILIES having meaningful access to JUSTICE.
 
 1.1.4 Calls to Action
 - Support our mission
@@ -34,7 +34,7 @@ Our mission
 Meaningful access to justice for those who served.
 
 1.2.3 Body Copy
-VLAS exists to help build clearer, more connected pathways to justice for veterans and their families—grounded in dignity, practical support, and institutional trust.
+VLAS exists to help build clearer, more connected pathways to justice for veterans and their families, grounded in dignity, practical support, and institutional trust.
 
 1.2.4 Text Link
 About our mission
@@ -49,7 +49,7 @@ What we do
 Focused on access. Built through partnership.
 
 1.3.3 Introductory Copy
-These draft focus areas express the organization’s stated purpose without making unverified service claims. Final program language remains subject to client approval.
+[These draft focus areas express the organization’s stated purpose without making unverified service claims. Final program language remains subject to client approval.]
 
 1.3.4 Focus Area 01: Access to justice
 Helping veterans and their families find clearer pathways through legal challenges and available resources.
@@ -154,7 +154,7 @@ Service deserves lasting support.
 Veterans Legal Aid Society is an Illinois nonprofit serving a public-interest mission at the intersection of veterans, families, legal professionals, and community support.
 
 2.2.4 Body Copy
-VLAS seeks to make legal systems and support pathways easier to understand and navigate while building the relationships needed for durable, practical access to justice.
+VLAS helps veterans and their families understand the legal system, find support, and get the legal help they need.
 
 
 2.3 OUR HISTORY
@@ -192,13 +192,21 @@ Veterans’ Legal Aid Society (VLAS) provides free legal assistance to veterans 
 Through direct legal services, in-person and virtual consultations, educational outreach, and partnerships with attorneys and veterans’ organizations, VLAS works to make meaningful access to justice a reality for those who served.
 
 2.4.4 Service 01: Ask a Lawyer / Legal Advice Desk
-Free in-person and virtual legal consultations help veterans and their families identify legal issues, understand their options, and obtain appropriate assistance or referrals.
+Free in-person and virtual legal consultations are available to veterans and their families.
+- Identify legal issues
+- Understand available options
+- Obtain appropriate assistance or referrals
 
 2.4.5 Service 02: Healthcare Power of Attorney Workshops
-Educational workshops help veterans and their families understand healthcare decision-making, prepare important legal documents, and avoid preventable complications.
+Educational workshops support veterans and their families as they plan for healthcare decisions.
+- Understand healthcare decision-making
+- Prepare important legal documents
+- Avoid preventable complications
 
 2.4.6 Service 03: Patriot Pooled Income Trust
-Through its role as co-trustee, VLAS helps administer a specialized trust designed to assist eligible individuals with disabilities in preserving assets while accessing Medicaid benefits.
+Through its role as co-trustee, VLAS helps administer a specialized trust for eligible individuals with disabilities.
+- Preserve assets
+- Maintain access to Medicaid benefits
 
 
 2.5 PATRIOT POOLED INCOME TRUST

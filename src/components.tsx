@@ -104,13 +104,21 @@ export function MobileNavigation({
   const firstLink = useRef<HTMLAnchorElement>(null)
 
   useEffect(() => {
-    if (open) firstLink.current?.focus()
+    if (!open) return
+
+    const focusFrame = window.requestAnimationFrame(() =>
+      firstLink.current?.focus(),
+    )
+    return () => window.cancelAnimationFrame(focusFrame)
   }, [open])
 
-  if (!open) return null
-
   return (
-    <div className="mobile-navigation" id="mobile-navigation">
+    <div
+      className={`mobile-navigation ${open ? "is-open" : ""}`}
+      id="mobile-navigation"
+      aria-hidden={!open}
+      inert={!open}
+    >
       <nav aria-label="Mobile navigation">
         {navigation.map((item, index) => (
           <AppLink
@@ -362,7 +370,7 @@ export function SectionHeading({
 }: {
   eyebrow: string
   title: string
-  intro?: string
+  intro?: ReactNode
   align?: "left" | "center"
 }) {
   return (
@@ -382,17 +390,23 @@ export function HeroSection({
   image,
   imageAlt = "",
   compact = false,
+  className,
 }: {
   eyebrow: string
   title: string
-  intro: string
+  intro: ReactNode
   children?: ReactNode
   image?: string
   imageAlt?: string
   compact?: boolean
+  className?: string
 }) {
   return (
-    <section className={`page-hero ${compact ? "page-hero-compact" : ""}`}>
+    <section
+      className={`page-hero ${compact ? "page-hero-compact" : ""} ${
+        className ?? ""
+      }`}
+    >
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="eyebrow">{eyebrow}</p>

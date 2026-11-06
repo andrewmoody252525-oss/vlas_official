@@ -1,4 +1,10 @@
-import { useState, type FormEvent } from "react"
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+} from "react"
 import {
   AppLink,
   ArrowIcon,
@@ -8,7 +14,16 @@ import {
   ShieldIcon,
 } from "./components"
 
-const focusAreas = [
+type ServiceItem = {
+  number: string
+  title: string
+  copy: string
+  bullets?: string[]
+  category?: string
+  icon?: "scales" | "document" | "coins"
+}
+
+const focusAreas: ServiceItem[] = [
   {
     number: "01",
     title: "Access to justice",
@@ -26,39 +41,170 @@ const focusAreas = [
   },
 ]
 
-const aboutServices = [
+const aboutServices: ServiceItem[] = [
   {
     number: "01",
     title: "Ask a Lawyer / Legal Advice Desk",
-    copy: "Free in-person and virtual legal consultations help veterans and their families identify legal issues, understand their options, and obtain appropriate assistance or referrals.",
+    category: "Legal Assistance",
+    icon: "scales",
+    copy: "Free in-person and virtual legal consultations are available to veterans and their families.",
+    bullets: [
+      "Identify legal issues",
+      "Understand available options",
+      "Obtain appropriate assistance or referrals",
+    ],
   },
   {
     number: "02",
     title: "Healthcare Power of Attorney Workshops",
-    copy: "Educational workshops help veterans and their families understand healthcare decision-making, prepare important legal documents, and avoid preventable complications.",
+    category: "Education & Planning",
+    icon: "document",
+    copy: "Educational workshops support veterans and their families as they plan for healthcare decisions.",
+    bullets: [
+      "Understand healthcare decision-making",
+      "Prepare important legal documents",
+      "Avoid preventable complications",
+    ],
   },
   {
     number: "03",
     title: "Patriot Pooled Income Trust",
-    copy: "Through its role as co-trustee, VLAS helps administer a specialized trust designed to assist eligible individuals with disabilities in preserving assets while accessing Medicaid benefits.",
+    category: "Trust Administration",
+    icon: "coins",
+    copy: "Through its role as co-trustee, VLAS helps administer a specialized trust for eligible individuals with disabilities.",
+    bullets: ["Preserve assets", "Maintain access to Medicaid benefits"],
   },
 ]
 
+function ServiceIllustration({ type }: { type: ServiceItem["icon"] }) {
+  if (type === "scales") {
+    return (
+      <svg
+        className="service-illustration"
+        viewBox="0 0 96 80"
+        aria-hidden="true"
+      >
+        <path d="M48 12v55M28 20h40M48 12l-5 8h10l-5-8ZM35 68h26M40 62h16" />
+        <path d="m28 20-14 28h28L28 20Zm40 0L54 48h28L68 20ZM14 48c2 9 24 9 28 0M54 48c2 9 24 9 28 0" />
+      </svg>
+    )
+  }
+
+  if (type === "document") {
+    return (
+      <svg
+        className="service-illustration"
+        viewBox="0 0 96 80"
+        aria-hidden="true"
+      >
+        <path d="M20 10h42l14 14v45H20V10Z" />
+        <path d="M62 10v15h14M30 35h32M30 45h24M30 55h20" />
+        <path d="m56 61 23-29 8 6-23 29-12 4 4-10Z" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg
+      className="service-illustration"
+      viewBox="0 0 96 80"
+      aria-hidden="true"
+    >
+      <ellipse cx="35" cy="58" rx="22" ry="8" />
+      <path d="M13 48v10M57 48v10M13 48c0 4 10 8 22 8s22-4 22-8M13 38v10c0 4 10 8 22 8" />
+      <ellipse cx="35" cy="38" rx="22" ry="8" />
+      <ellipse cx="65" cy="27" rx="20" ry="8" />
+      <path d="M45 27v20c0 4 9 8 20 8s20-4 20-8V27M45 37c0 4 9 8 20 8s20-4 20-8" />
+    </svg>
+  )
+}
+
 export function ServiceOverview({
   items = focusAreas,
+  interactive = false,
 }: {
-  items?: typeof focusAreas
+  items?: ServiceItem[]
+  interactive?: boolean
 }) {
+  const [expandedService, setExpandedService] = useState<string | null>(null)
+
   return (
-    <div className="service-grid">
-      {items.map((item) => (
-        <article className="service-card" key={item.number}>
-          <p className="card-number">{item.number}</p>
-          <h3>{item.title}</h3>
-          <p>{item.copy}</p>
-          <div className="card-rule" aria-hidden="true" />
-        </article>
-      ))}
+    <div className={interactive ? "service-architecture" : undefined}>
+      {interactive && (
+        <div className="service-banner">
+          <div className="service-banner-copy">
+            <p>Our Services</p>
+            <h3>Legal Support for Veterans and Their Families</h3>
+          </div>
+        </div>
+      )}
+      <div
+        className={`service-grid ${
+          interactive ? "service-grid-disclosure" : ""
+        }`}
+      >
+        {items.map((item) => {
+          const isExpanded = expandedService === item.number
+
+          return (
+            <article
+              className={`service-card ${
+                interactive ? "service-card-disclosure" : ""
+              } ${isExpanded ? "is-expanded" : ""}`}
+              key={item.number}
+            >
+              {interactive ? (
+                <div className="service-card-meta">
+                  <span className="service-category">{item.category}</span>
+                </div>
+              ) : (
+                <p className="card-number">{item.number}</p>
+              )}
+              <h3>{item.title}</h3>
+              {interactive ? (
+                <>
+                  <button
+                    className="service-card-toggle"
+                    type="button"
+                    aria-expanded={isExpanded}
+                    aria-controls={`service-details-${item.number}`}
+                    aria-label={`${
+                      isExpanded ? "Hide" : "Show"
+                    } details for ${item.title}`}
+                    onClick={() =>
+                      setExpandedService(isExpanded ? null : item.number)
+                    }
+                  >
+                    <span className="service-toggle-mobile">
+                      Tap to learn more
+                    </span>
+                    <span className="service-toggle-icon" aria-hidden="true">
+                      +
+                    </span>
+                  </button>
+                  <div
+                    className="service-card-details"
+                    id={`service-details-${item.number}`}
+                  >
+                    <p>{item.copy}</p>
+                    {item.bullets && (
+                      <ul>
+                        {item.bullets.map((bullet) => (
+                          <li key={bullet}>{bullet}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                  <ServiceIllustration type={item.icon} />
+                </>
+              ) : (
+                <p>{item.copy}</p>
+              )}
+              <div className="card-rule" aria-hidden="true" />
+            </article>
+          )
+        })}
+      </div>
     </div>
   )
 }
@@ -158,7 +304,16 @@ export function HomePage() {
       <HeroSection
         eyebrow="Veterans Legal Aid Society"
         title="Justice should remain within reach."
-        intro="VLAS is an Illinois nonprofit focused on veterans and their families having meaningful access to justice."
+        intro={
+          <>
+            VLAS is an Illinois nonprofit focused on{" "}
+            <strong className="copy-emphasis">
+              veterans and their families
+            </strong>{" "}
+            having meaningful access to{" "}
+            <strong className="copy-emphasis">justice</strong>.
+          </>
+        }
         image="/assets/american-flag-sunset.jpg"
         imageAlt="American flag illuminated by the setting sun"
       >
@@ -177,7 +332,7 @@ export function HomePage() {
             <h2>Meaningful access to justice for those who served.</h2>
             <p>
               VLAS exists to help build clearer, more connected pathways to
-              justice for veterans and their families—grounded in dignity,
+              justice for veterans and their families, grounded in dignity,
               practical support, and institutional trust.
             </p>
             <AppLink href="/about" className="text-link">
@@ -192,7 +347,13 @@ export function HomePage() {
           <SectionHeading
             eyebrow="What we do"
             title="Focused on access. Built through partnership."
-            intro="These draft focus areas express the organization’s stated purpose without making unverified service claims. Final program language remains subject to client approval."
+            intro={
+              <em>
+                [These draft focus areas express the organization’s stated
+                purpose without making unverified service claims. Final program
+                language remains subject to client approval.]
+              </em>
+            }
           />
           <ServiceOverview />
         </div>
@@ -247,23 +408,27 @@ export function AboutPage() {
       />
 
       <section className="section">
-        <div className="container split-content">
+        <div className="container">
           <SectionHeading
-            eyebrow="Who we are"
-            title="Service deserves lasting support."
+            eyebrow="What we do"
+            title="Work organized around meaningful access."
+            intro={
+              <>
+                Veterans’ Legal Aid Society (VLAS) provides{" "}
+                <strong className="copy-emphasis">free legal assistance</strong>{" "}
+                to veterans and their families, helping them navigate challenges
+                that can threaten their homes, livelihoods, financial security,
+                and well-being.
+              </>
+            }
           />
-          <div className="prose">
-            <p className="prose-lead">
-              Veterans Legal Aid Society is an Illinois nonprofit serving a
-              public-interest mission at the intersection of veterans, families,
-              legal professionals, and community support.
-            </p>
-            <p>
-              VLAS seeks to make legal systems and support pathways easier to
-              understand and navigate while building the relationships needed
-              for durable, practical access to justice.
-            </p>
-          </div>
+          <p className="section-supporting-copy">
+            Through direct legal services, in-person and virtual consultations,
+            educational outreach, and partnerships with attorneys and veterans’
+            organizations, VLAS works to make meaningful access to justice a
+            reality for those who served.
+          </p>
+          <ServiceOverview items={aboutServices} interactive />
         </div>
       </section>
 
@@ -307,19 +472,22 @@ export function AboutPage() {
       </section>
 
       <section className="section">
-        <div className="container">
+        <div className="container split-content">
           <SectionHeading
-            eyebrow="What we do"
-            title="Work organized around meaningful access."
-            intro="Veterans’ Legal Aid Society (VLAS) provides free legal assistance to veterans and their families, helping them navigate challenges that can threaten their homes, livelihoods, financial security, and well-being."
+            eyebrow="Who we are"
+            title="Service deserves lasting support."
           />
-          <p className="section-supporting-copy">
-            Through direct legal services, in-person and virtual consultations,
-            educational outreach, and partnerships with attorneys and veterans’
-            organizations, VLAS works to make meaningful access to justice a
-            reality for those who served.
-          </p>
-          <ServiceOverview items={aboutServices} />
+          <div className="prose">
+            <p className="prose-lead">
+              Veterans Legal Aid Society is an Illinois nonprofit serving a
+              public-interest mission at the intersection of veterans, families,
+              legal professionals, and community support.
+            </p>
+            <p>
+              VLAS helps veterans and their families understand the legal
+              system, find support, and get the legal help they need.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -472,6 +640,26 @@ type Fields = {
 
 const initialFields: Fields = { name: "", email: "", inquiry: "", message: "" }
 
+const inquiryOptions = [
+  {
+    value: "legal-assistance",
+    label: "I am a veteran or family member seeking legal assistance",
+  },
+  {
+    value: "attorney",
+    label: "I am an attorney interested in volunteering",
+  },
+  {
+    value: "partnership",
+    label: "My firm or organization is interested in partnering",
+  },
+  {
+    value: "donation",
+    label: "I would like to make a donation or sponsor VLAS",
+  },
+  { value: "general", label: "General inquiry" },
+]
+
 function validate(fields: Fields) {
   const errors: Partial<Record<keyof Fields, string>> = {}
   if (!fields.name.trim()) errors.name = "Enter your full name."
@@ -483,6 +671,138 @@ function validate(fields: Fields) {
   if (!fields.inquiry) errors.inquiry = "Choose an inquiry type."
   if (!fields.message.trim()) errors.message = "Enter a message."
   return errors
+}
+
+function InquirySelect({
+  value,
+  onChange,
+  invalid,
+  describedBy,
+}: {
+  value: string
+  onChange: (value: string) => void
+  invalid: boolean
+  describedBy?: string
+}) {
+  const [open, setOpen] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const container = useRef<HTMLDivElement>(null)
+  const selectedOption = inquiryOptions.find((option) => option.value === value)
+
+  useEffect(() => {
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (!container.current?.contains(event.target as Node)) setOpen(false)
+    }
+    window.addEventListener("pointerdown", closeOnOutsideClick)
+    return () => window.removeEventListener("pointerdown", closeOnOutsideClick)
+  }, [])
+
+  function openMenu() {
+    const selectedIndex = inquiryOptions.findIndex(
+      (option) => option.value === value,
+    )
+    setActiveIndex(selectedIndex >= 0 ? selectedIndex : 0)
+    setOpen(true)
+  }
+
+  function selectOption(index: number) {
+    const option = inquiryOptions[index]
+    if (!option) return
+    onChange(option.value)
+    setOpen(false)
+  }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
+    if (!open) {
+      if (
+        event.key === "ArrowDown" ||
+        event.key === "ArrowUp" ||
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+        event.preventDefault()
+        openMenu()
+      }
+      return
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault()
+      setActiveIndex((current) =>
+        Math.min(current + 1, inquiryOptions.length - 1),
+      )
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault()
+      setActiveIndex((current) => Math.max(current - 1, 0))
+    } else if (event.key === "Home") {
+      event.preventDefault()
+      setActiveIndex(0)
+    } else if (event.key === "End") {
+      event.preventDefault()
+      setActiveIndex(inquiryOptions.length - 1)
+    } else if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault()
+      selectOption(activeIndex)
+    } else if (event.key === "Escape") {
+      event.preventDefault()
+      setOpen(false)
+    } else if (event.key === "Tab") {
+      setOpen(false)
+    }
+  }
+
+  return (
+    <div className={`select-control ${open ? "is-open" : ""}`} ref={container}>
+      <button
+        id="inquiry-type"
+        className="inquiry-select-trigger"
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls="inquiry-options"
+        aria-activedescendant={
+          open ? `inquiry-option-${activeIndex}` : undefined
+        }
+        aria-invalid={invalid}
+        aria-describedby={describedBy}
+        aria-required="true"
+        onClick={() => (open ? setOpen(false) : openMenu())}
+        onKeyDown={handleKeyDown}
+      >
+        <span
+          className={`select-value ${selectedOption ? "" : "is-placeholder"}`}
+          key={value || "placeholder"}
+        >
+          {selectedOption?.label ?? "Select an inquiry type"}
+        </span>
+        <span className="select-caret" aria-hidden="true" />
+      </button>
+      <ul
+        className="inquiry-options"
+        id="inquiry-options"
+        role="listbox"
+        aria-label="Inquiry type"
+        aria-hidden={!open}
+      >
+        {inquiryOptions.map((option, index) => (
+          <li
+            id={`inquiry-option-${index}`}
+            className={`${index === activeIndex ? "is-active" : ""} ${
+              option.value === value ? "is-selected" : ""
+            }`}
+            key={option.value}
+            role="option"
+            aria-selected={option.value === value}
+            onClick={() => selectOption(index)}
+            onMouseEnter={() => setActiveIndex(index)}
+          >
+            {option.label}
+          </li>
+        ))}
+      </ul>
+      <input type="hidden" name="inquiryType" value={value} />
+    </div>
+  )
 }
 
 export function ContactForm() {
@@ -572,29 +892,12 @@ export function ContactForm() {
         <label htmlFor="inquiry-type">
           Inquiry type <span aria-hidden="true">*</span>
         </label>
-        <select
-          id="inquiry-type"
+        <InquirySelect
           value={fields.inquiry}
-          onChange={(event) => updateField("inquiry", event.target.value)}
-          aria-invalid={Boolean(errors.inquiry)}
-          aria-describedby={errors.inquiry ? "inquiry-error" : undefined}
-          required
-        >
-          <option value="">Select an inquiry type</option>
-          <option value="legal-assistance">
-            I am a veteran or family member seeking legal assistance
-          </option>
-          <option value="attorney">
-            I am an attorney interested in volunteering
-          </option>
-          <option value="partnership">
-            My firm or organization is interested in partnering
-          </option>
-          <option value="donation">
-            I would like to make a donation or sponsor VLAS
-          </option>
-          <option value="general">General inquiry</option>
-        </select>
+          onChange={(value) => updateField("inquiry", value)}
+          invalid={Boolean(errors.inquiry)}
+          describedBy={errors.inquiry ? "inquiry-error" : undefined}
+        />
         {errors.inquiry && (
           <span className="field-error" id="inquiry-error">
             {errors.inquiry}
@@ -641,73 +944,80 @@ export function ContactForm() {
 export function ContactPage() {
   return (
     <>
-      <HeroSection
-        eyebrow="Contact Us"
-        title="Begin with a clear conversation."
-        intro="Use the form below for general, professional, sponsorship, partnership, or media inquiries."
-        compact
-      />
+      <section
+        className="page-hero page-hero-compact contact-page-hero"
+        aria-labelledby="contact-details-heading"
+      >
+        <div className="container">
+          <div className="contact-hero-overview">
+            <div className="contact-hero-intro">
+              <p className="eyebrow eyebrow-light">Contact Us</p>
+              <h1 id="contact-details-heading">We’re Here to Help</h1>
+              <p>
+                Whether you need legal assistance or want to help expand access
+                to justice for Illinois veterans, Veterans’ Legal Aid Society
+                welcomes your inquiry.
+              </p>
+            </div>
+            <div className="contact-hero-pathways">
+              <div className="contact-detail-card">
+                <span>Legal Assistance for Veterans</span>
+                <AppLink href="tel:18887514377">Call: 1-888-751-4377</AppLink>
+              </div>
+              <div className="contact-detail-card">
+                <span>Partnerships, Donations & General Inquiries</span>
+                <AppLink href="mailto:info@veteranslegalaid.org">
+                  Email: info@veteranslegalaid.org
+                </AppLink>
+              </div>
+            </div>
+            <div className="contact-hero-support">
+              <p>
+                Attorneys, law firms, corporate legal departments, and community
+                organizations interested in supporting our mission are
+                encouraged to reach out.
+              </p>
+              <p>
+                <strong>Serving Illinois Veterans and Their Families.</strong>{" "}
+                Together, we can help build stronger futures for those who
+                served.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section contact-section">
         <div className="container contact-grid">
-          <div>
-            <SectionHeading
-              eyebrow="Send an inquiry"
-              title="How can we direct your message?"
-              intro="Whether you’re a veteran seeking legal assistance, an attorney interested in providing pro bono services, or an organization looking to support our mission, we welcome the opportunity to connect."
-            />
-            <div className="contact-guidance">
-              <p>
-                Please select the type of inquiry below and share a brief
-                description of how we can help. Our team will review your
-                message and follow up as appropriate.
-              </p>
-              <p>
-                Illinois veterans seeking legal assistance may also call{" "}
-                <AppLink href="tel:18887514377">1-888-751-4377</AppLink>.
-              </p>
-              <p className="contact-configuration-note">
-                <strong>Online form status:</strong> Message delivery is still
-                being configured. Until it is connected, please use the phone
-                number or email address provided on this page.
-              </p>
-            </div>
-            <ContactForm />
+          <SectionHeading
+            eyebrow="Send an inquiry"
+            title="How can we direct your message?"
+            intro="Whether you’re a veteran seeking legal assistance, an attorney interested in providing pro bono services, or an organization looking to support our mission, we welcome the opportunity to connect."
+          />
+          <div className="contact-guidance">
+            <p>
+              Please select the type of inquiry below and share a brief
+              description of how we can help. Our team will review your message
+              and follow up as appropriate.
+            </p>
+            <p>
+              Illinois veterans seeking legal assistance may also call{" "}
+              <AppLink href="tel:18887514377">1-888-751-4377</AppLink>.
+            </p>
+            <p className="contact-configuration-note">
+              <strong>Online form status:</strong> Message delivery is still
+              being configured. Until it is connected, please use the phone
+              number or email address provided on this page.
+            </p>
           </div>
-          <aside
-            className="contact-aside"
-            aria-labelledby="contact-details-heading"
-          >
-            <p className="eyebrow eyebrow-light">Contact details</p>
-            <h2 id="contact-details-heading">We’re Here to Help</h2>
+          <div className="form-entry-heading">
+            <h2>Begin with a clear conversation.</h2>
             <p>
-              Whether you need legal assistance or want to help expand access to
-              justice for Illinois veterans, Veterans’ Legal Aid Society
-              welcomes your inquiry.
+              Use the form below for general, professional, sponsorship,
+              partnership, or media inquiries.
             </p>
-            <div className="contact-detail-card">
-              <span>Legal Assistance for Veterans</span>
-              <AppLink href="tel:18887514377">Call: 1-888-751-4377</AppLink>
-            </div>
-            <div className="contact-detail-card">
-              <span>Partnerships, Donations & General Inquiries</span>
-              <AppLink href="mailto:info@veteranslegalaid.org">
-                Email: info@veteranslegalaid.org
-              </AppLink>
-            </div>
-            <p>
-              Attorneys, law firms, corporate legal departments, and community
-              organizations interested in supporting our mission are encouraged
-              to reach out.
-            </p>
-            <p className="aside-note">
-              <strong>Serving Illinois Veterans and Their Families</strong>
-              <span>
-                Together, we can help build stronger futures for those who
-                served.
-              </span>
-            </p>
-          </aside>
+          </div>
+          <ContactForm />
         </div>
       </section>
 
